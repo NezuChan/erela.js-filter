@@ -2,18 +2,18 @@ import plugin from '../index';
 export = plugin;
 
 declare module 'erela.js' {
-    export class Player {
-        public filters: filters
-        public setNightcore(status?: boolean): Player
-        public setDaycore(status?: boolean): Player
-        public setDaycore(status?: boolean): Player
-        public setPop(status?: boolean): Player
-        public setSoft(status?: boolean): Player
-        public setTrebbleBass(status?: boolean): Player
-        public setEightD(status?: boolean): Player
-        public setKaraoke(status?: boolean): Player
-        private async updateFilters(seek?: boolean): Player
-        public clearFilters(seek?: boolean): Player
+    export interface Player {
+        filters: filters
+        setNightcore(status?: boolean): Player
+        setDaycore(status?: boolean): Player
+        setDaycore(status?: boolean): Player
+        setPop(status?: boolean): Player
+        setSoft(status?: boolean): Player
+        setTrebbleBass(status?: boolean): Player
+        setEightD(status?: boolean): Player
+        setKaraoke(status?: boolean): Player
+        async updateFilters(seek?: boolean): Player
+        clearFilters(seek?: boolean): Player
     }
     export interface filters {
         volume: number;
