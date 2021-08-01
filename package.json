@@ -2,5 +2,11 @@
   "dependencies": {
     "erela.js": "^2.3.3"
   },
-  "typings": "src/typings"
+  "main": "./src/index.js",
+  "typings": "./src/typings/index.d.ts",
+  "author": {
+    "name": "KagChi"
+  },
+  "description": "erela.js filter plugin",
+  "license": "MIT"
 }

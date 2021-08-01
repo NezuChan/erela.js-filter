@@ -3,7 +3,7 @@ const filterConstants = require('./Util/filterConstants');
 module.exports = class erelaFilters extends Plugin {
     load(manager) {
         Structure.extend('Player', (player) => {
-    module.exports = class Player extends player {
+    class Player extends player {
                 constructor(options) {
                     super(options)
                     this.filters = new filterConstants();
@@ -149,6 +149,7 @@ module.exports = class erelaFilters extends Plugin {
                     return this.seek(this.position)
                 } 
             }
+            return Player;
         })
     }
 }
