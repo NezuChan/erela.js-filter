@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "erela.js": "^2.3.3"
+  },
+  "typings": "src/typings"
+}
