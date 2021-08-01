@@ -1,3 +1,6 @@
+import plugin from '../index';
+export = plugin;
+
 declare module 'erela.js' {
     export class Player {
         public filters: filters
@@ -14,7 +17,7 @@ declare module 'erela.js' {
     }
     export interface filters {
         volume: number;
-        equalizer: null | [];
+        equalizer: [] | null;
         karaoke: unknown | null;
         timescale: unknown | null;
         tremolo: unknown | null;
