@@ -6,15 +6,27 @@ module.exports = class erelaFilters extends Plugin {
     class Player extends player {
                 constructor(options) {
                     super(options)
-                    this.filters = new filterConstants();
+                    this.filtersData = new filterConstants();
+                    this.filters = {
+                        nightore: false,
+                        daycore: false,
+                        vaporwave: false,
+                        pop: false,
+                        soft: false,
+                        trebblebass: false,
+                        eightD: false,
+                        karaoke: false
+                    }
                 }
 
                 setNightcore(status = true) {
                     if(!status) {
-                        this.filters.timescale = null
+                        this.filters.nightore = false
+                        this.filtersData.timescale = null
                         return this.updateFilters();
                     }
-                    this.filters.timescale = {
+                    this.filters.nightore = true
+                    this.filtersData.timescale = {
                         speed: 1.0,
                         pitch: 1.0,
                         rate: 1.0
@@ -24,32 +36,38 @@ module.exports = class erelaFilters extends Plugin {
 
                 setDaycore(status = true) {
                     if(!status) {
-                        this.filters.timescale = null
+                        this.filters.daycore = false
+                        this.filtersData.timescale = null
                         return this.updateFilters();
                     }
-                    this.filters.timescale = { speed: 1, rate: 1, pitch: .9 }
+                    this.filters.daycore = true
+                    this.filtersData.timescale = { speed: 1, rate: 1, pitch: .9 }
                     return this.updateFilters()
                 }
 
                 setVaporwave(status = true) {
                     if(!status) {
-                        this.filters.equalizer = [];
-                        this.filters.tremolo = null;
-                        this.filters.timescale = null;
+                        this.filters.vaporwave = false
+                        this.filtersData.equalizer = [];
+                        this.filtersData.tremolo = null;
+                        this.filtersData.timescale = null;
                         return this.updateFilters();
                     }
-                    this.filters.equalizer = [ { band: 1, gain: 0.3 }, {band: 0, gain: 0.3} ];
-                    this.filters.timescale = { pitch: 0.5 }
-                    this.filters.tremolo = { depth: 0.3, frequency: 14 }
+                    this.filters.vaporwave = true
+                    this.filtersData.equalizer = [ { band: 1, gain: 0.3 }, {band: 0, gain: 0.3} ];
+                    this.filtersData.timescale = { pitch: 0.5 }
+                    this.filtersData.tremolo = { depth: 0.3, frequency: 14 }
                     return this.updateFilters()
                 }
 
                 setPop(status = true) {
                     if(!status) {
-                        this.filters.equalizer = [];
+                        this.filters.pop = false
+                        this.filtersData.equalizer = [];
                         return this.updateFilters();
                     }
-                    this.filters.equalizer = [
+                    this.filters.pop = true
+                    this.filtersData.equalizer = [
                         { band: 0, gain: 0.65 },
                         { band: 1, gain: 0.45 },
                         { band: 2, gain: -0.45 },
@@ -69,19 +87,23 @@ module.exports = class erelaFilters extends Plugin {
                 }
                 setSoft(status = true) {
                     if(!status) {
-                        this.filters.lowpass = [];
+                        this.filters.soft = false
+                        this.filtersData.lowpass = [];
                         return this.updateFilters();
                     }
-                    this.filters.lowpass ={ smoothing: 20.0 };
+                    this.filters.soft = true
+                    this.filtersData.lowpass ={ smoothing: 20.0 };
                     this.updateFilters();
                 }
 
                 setTrebbleBass(status = true) {
                     if(!status) {
-                        this.filters.equalizer = [];
+                        this.filters.trebblebass = false
+                        this.filtersData.equalizer = [];
                         this.updateFilters();
                     }
-                    this.filters.equalizer = [
+                    this.filters.trebblebass = true
+                    this.filtersData.equalizer = [
                         { band: 0, gain: 0.6 },
                         { band: 1, gain: 0.67 },
                         { band: 2, gain: 0.67 },
@@ -102,19 +124,23 @@ module.exports = class erelaFilters extends Plugin {
                 
                 setEightD(status = true) {
                     if(!status) {
-                        this.filters.rotation = null;
+                        this.filters.eightD = false
+                        this.filtersData.rotation = null;
                         this.updateFilters();
                     }
-                    this.filters.rotation = { rotationHz };
+                    this.filters.eightD = true
+                    this.filtersData.rotation = { rotationHz };
                     this.updateFilters();
                 }
 
                 setKaraoke(status = true) {
                     if(!status) {
-                        this.filters.karaoke = null;
+                        this.filters.karaoke = false
+                        this.filtersData.karaoke = null;
                         this.updateFilters();
                     }
-                    this.filters.karaoke = {
+                    this.filters.karaoke = true
+                    this.filtersData.karaoke = {
                         level: 1.0,
                         monoLevel: 1.0,
                         filterBand: 220.0,
@@ -124,7 +150,7 @@ module.exports = class erelaFilters extends Plugin {
                 }
 
                 async updateFilters(seek = true) {
-                    const { volume, equalizer, karaoke, timescale, tremolo, vibrato, rotation, distortion } = this.filters;
+                    const { volume, equalizer, karaoke, timescale, tremolo, vibrato, rotation, distortion } = this.filtersData;
                     await this.node.send({
                         op: 'filters',
                         guildId: this.guild,
