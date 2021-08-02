@@ -52,7 +52,7 @@ module.exports = class erelaFilters extends Plugin {
                         return this.updateFilters();
                     }
                     this.filters.vaporwave = true
-                    this.filtersData.equalizer = [ { band: 1, gain: 0.3 }, {band: 0, gain: 0.3} ];
+                    this.filtersData.equalizer = [ { band: 1, gain: 0.3 }, { band: 0, gain: 0.3 } ];
                     this.filtersData.timescale = { pitch: 0.5 }
                     this.filtersData.tremolo = { depth: 0.3, frequency: 14 }
                     return this.updateFilters()
@@ -90,7 +90,7 @@ module.exports = class erelaFilters extends Plugin {
                         return this.updateFilters();
                     }
                     this.filters.soft = true
-                    this.filtersData.lowpass ={ smoothing: 20.0 };
+                    this.filtersData.lowpass = { smoothing: 20.0 };
                     this.updateFilters();
                 }
 
@@ -127,7 +127,7 @@ module.exports = class erelaFilters extends Plugin {
                         this.updateFilters();
                     }
                     this.filters.eightD = true
-                    this.filtersData.rotation = { rotationHz };
+                    this.filtersData.rotation = { rotationHz: 0.2 };
                     this.updateFilters();
                 }
 
