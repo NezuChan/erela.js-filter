@@ -1,8 +1,8 @@
 import plugin from '../index';
 export = plugin;
 
-declare module 'erela.js' {
-    export interface Player {
+declare module 'erela.js/structures/Player' {
+    export class Player {
         private filtersData: filtersData
         public filters: {
             nighrcore: boolean,
