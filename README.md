@@ -1,6 +1,9 @@
 # erela.js-filter
 
-A easy to use folter plugin for erela.js
+A easy to use filter plugin for erela.js
+
+# Requirements
+nodejs v14+
 
 # Usage
 ```js
