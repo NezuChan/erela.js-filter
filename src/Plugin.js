@@ -5,8 +5,8 @@ module.exports = class erelaFilters extends Plugin {
         Structure.extend('Player', (Player) => class extends Player {
                 constructor() {
                 super(...arguments);
-                filtersData = new filterConstants();
-                filters = {
+                this.filtersData = new filterConstants();
+                this.filters = {
                     nightore: false,
                     daycore: false,
                     vaporwave: false,
