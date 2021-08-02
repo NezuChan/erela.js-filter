@@ -5,7 +5,7 @@ declare module 'erela.js/structures/Player' {
     export class Player {
         private filtersData: filtersData
         public filters: {
-            nighrcore: boolean,
+            nightcore: boolean,
             daycore: boolean,
             vaporwave: boolean,
             pop: boolean,
