@@ -16,6 +16,8 @@ const manager = new Manager({
 
 
 # Example
-Player#setNightcore() /* To enable filter */
-Player#setNightcore(false) /* To disable filter */
-player#clearFilters(true) /* To clear applied filter(s) */
+```js
+Player.setNightcore() /* To enable filter */
+Player.setNightcore(false) /* To disable filter */
+player.clearFilters(true) /* To clear applied filter(s) */
+```
