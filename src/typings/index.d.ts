@@ -2,7 +2,7 @@ import plugin from '../index';
 export = plugin;
 
 declare module 'erela.js/structures/Player' {
-    export class Player {
+    export interface Player {
         private filtersData: filtersData
         public filters: {
             nightcore: boolean,
