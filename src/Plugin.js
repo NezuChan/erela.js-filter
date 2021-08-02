@@ -1,22 +1,19 @@
 const { Plugin, Structure } = require('erela.js');
 const filterConstants = require('./Util/filterConstants');
 module.exports = class erelaFilters extends Plugin {
-    load(manager) {
-        Structure.extend('Player', (player) => {
-    class Player extends player {
-                constructor(options) {
-                    super(options)
-                    this.filtersData = new filterConstants();
-                    this.filters = {
-                        nightore: false,
-                        daycore: false,
-                        vaporwave: false,
-                        pop: false,
-                        soft: false,
-                        trebblebass: false,
-                        eightD: false,
-                        karaoke: false
-                    }
+    load() {
+        Structure.extend('Player', (Player) => {
+            class extends Player {
+                filtersData = new filterConstants();
+                filters = {
+                    nightore: false,
+                    daycore: false,
+                    vaporwave: false,
+                    pop: false,
+                    soft: false,
+                    trebblebass: false,
+                    eightD: false,
+                    karaoke: false
                 }
 
                 setNightcore(status = true) {
@@ -175,7 +172,6 @@ module.exports = class erelaFilters extends Plugin {
                     return this.seek(this.position)
                 } 
             }
-            return Player;
         })
     }
 }
