@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "erela.js": "^2.3.3"
+    "erela.js": "latest"
   },
   "name": "erela.js-filter",
   "version": "0.2.0",
