@@ -2,7 +2,7 @@
 
 A easy to use filter plugin for erela.js
 
-# Requirements
+## Requirements
 nodejs v14+
 
 # Usage
@@ -13,3 +13,9 @@ const manager = new Manager({
     plugins: [new filterPlugin()]
 })
 ```
+
+
+# Example
+Player#setNightcore() /* To enable filter */
+Player#setNightcore(false) /* To disable filter */
+player#clearFilters(true) /* To clear applied filter(s) */
