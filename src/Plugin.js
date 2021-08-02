@@ -7,7 +7,7 @@ module.exports = class erelaFilters extends Plugin {
                 super(...arguments);
                 this.filtersData = new filterConstants();
                 this.filters = {
-                    nightore: false,
+                    nightcore: false,
                     daycore: false,
                     vaporwave: false,
                     pop: false,
@@ -19,11 +19,11 @@ module.exports = class erelaFilters extends Plugin {
                }
                 setNightcore(status = true) {
                     if(!status) {
-                        this.filters.nightore = false
+                        this.filters.nightcore = false
                         this.filtersData.timescale = null
                         return this.updateFilters();
                     }
-                    this.filters.nightore = true
+                    this.filters.nightcore = true
                     this.filtersData.timescale = {
                         speed: 1.0,
                         pitch: 1.0,
