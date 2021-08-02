@@ -169,6 +169,17 @@ module.exports = class erelaFilters extends Plugin {
                         op: 'filters',
                         guildId: this.guild,
                     });
+                    this.filtersData = new filterConstants();
+                    this.filters = {
+                        nightcore: false,
+                        daycore: false,
+                        vaporwave: false,
+                        pop: false,
+                        soft: false,
+                        trebblebass: false,
+                        eightD: false,
+                        karaoke: false
+                    }
                     if(!seek) return;
                     return this.seek(this.position)
                 } 
