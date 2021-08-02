@@ -25,8 +25,8 @@ module.exports = class erelaFilters extends Plugin {
                     }
                     this.filters.nightcore = true
                     this.filtersData.timescale = {
-                        speed: 1.0,
-                        pitch: 1.0,
+                        speed: 1.3,
+                        pitch: 1.3,
                         rate: 1.0
                     };
                     return this.updateFilters()
