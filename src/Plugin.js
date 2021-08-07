@@ -181,6 +181,10 @@ class Player extends Structure.get('Player') {
 }
 
 class erelaFilters extends Plugin {
+    constructor(options) {
+        super(options);
+        this.options = options || {}
+    }
     load() {
         return Structure.extend("Player", () => Player);
     }
