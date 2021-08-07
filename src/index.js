@@ -1,2 +1,2 @@
-const Plugin = require('./Plugin');
-module.exports = Plugin
+const { erelaFilters } = require('./Plugin');
+module.exports = erelaFilters;

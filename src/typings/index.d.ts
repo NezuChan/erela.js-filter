@@ -1,5 +1,5 @@
-import plugin from '../index';
-export = plugin;
+import { erelaFilters } from '../index';
+export = erelaFilters;
 
 declare module 'erela.js/structures/Player' {
     export interface Player {
