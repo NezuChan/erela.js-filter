@@ -10,7 +10,12 @@ class Player extends Structure.get('Player') {
         soft: false,
         trebblebass: false,
         eightD: false,
-        karaoke: false
+        karaoke: false,
+        karaoke: false,
+        vibrato: false,
+        earrape: false,
+        tremolo: false,
+        distortion: false
     }
     setNightcore(status = true) {
         if (!status) {
@@ -142,6 +147,54 @@ class Player extends Structure.get('Player') {
         this.updateFilters();
     }
 
+    setVibrato(status = true) {
+        if (!status) {
+            this.filters.vibrato = false
+            this.filtersData.vibrato = { depth: 1, frequency: 14 };
+            this.updateFilters();
+        }
+        this.filters.vibrato = true
+        this.filtersData.vibrato = { depth: 1, frequency: 14 };
+        this.updateFilters();
+    }
+
+    setTremolo(status = true) {
+        if (!status) {
+            this.filters.tremolo = false
+            this.filtersData.tremolo = { frequency: 2.0, depth: 0.5 };
+            this.updateFilters();
+        }
+        this.filters.tremolo = true
+        this.filtersData.tremolo = { frequency: 2.0, depth: 0.5 };
+        this.updateFilters();
+    }
+
+    setEarrape(status = true) {
+        if (!status) {
+            this.filters.earrape = false
+            this.filtersData.equalizer = [];
+            this.filtersData.volume = 1.0;
+            this.updateFilters();
+        }
+        this.filters.earrape = true
+        this.filtersData.equalizer = [...Array(6).fill(0).map((n, i) => ({ band: i, gain: 0.5 }))];
+        this.filtersData.volume = 5.0;
+        this.updateFilters();
+    }
+
+    setDistortion(status = true) {
+        if (!status) {
+            this.filters.distortion = false
+            this.filtersData.distortion = null
+            this.updateFilters();
+        }
+        this.filters.distortion = true
+        this.filtersData.distortion = {
+            sinOffset: 0, sinScale: 1, cosOffset: 0, cosScale: 1, tanOffset: 0, tanScale: 1, offset: 0, scale: 1,
+        };
+        this.updateFilters();
+    }
+
     async updateFilters(seek = true) {
         const { volume, equalizer, karaoke, timescale, tremolo, vibrato, rotation, distortion } = this.filtersData;
         await this.node.send({
@@ -173,7 +226,11 @@ class Player extends Structure.get('Player') {
             soft: false,
             trebblebass: false,
             eightD: false,
-            karaoke: false
+            karaoke: false,
+            vibrato: false,
+            earrape: false,
+            tremolo: false,
+            distortion: false
         }
         if (!seek) return;
         return this.seek(this.position)
