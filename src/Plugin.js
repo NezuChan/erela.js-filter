@@ -91,14 +91,14 @@ class Player extends Structure.get('Player') {
         }
         this.filters.soft = true
         this.filtersData.lowpass = { smoothing: 20.0 };
-        this.updateFilters();
+        return this.updateFilters();
     }
 
     setTrebbleBass(status = true) {
         if (!status) {
             this.filters.trebblebass = false
             this.filtersData.equalizer = [];
-            this.updateFilters();
+            return this.updateFilters();
         }
         this.filters.trebblebass = true
         this.filtersData.equalizer = [
@@ -117,25 +117,25 @@ class Player extends Structure.get('Player') {
             { band: 12, gain: 0.55 },
             { band: 13, gain: 0 },
         ]
-        this.updateFilters();
+        return this.updateFilters();
     }
 
     setEightD(status = true) {
         if (!status) {
             this.filters.eightD = false
             this.filtersData.rotation = null;
-            this.updateFilters();
+            return this.updateFilters();
         }
         this.filters.eightD = true
         this.filtersData.rotation = { rotationHz: 0.2 };
-        this.updateFilters();
+        return this.updateFilters();
     }
 
     setKaraoke(status = true) {
         if (!status) {
             this.filters.karaoke = false
             this.filtersData.karaoke = null;
-            this.updateFilters();
+            return this.updateFilters();
         }
         this.filters.karaoke = true
         this.filtersData.karaoke = {
@@ -144,29 +144,29 @@ class Player extends Structure.get('Player') {
             filterBand: 220.0,
             filterWidth: 100.0
         }
-        this.updateFilters();
+        return this.updateFilters();
     }
 
     setVibrato(status = true) {
         if (!status) {
             this.filters.vibrato = false
             this.filtersData.vibrato = { depth: 1, frequency: 14 };
-            this.updateFilters();
+            return this.updateFilters();
         }
         this.filters.vibrato = true
         this.filtersData.vibrato = { depth: 1, frequency: 14 };
-        this.updateFilters();
+        return this.updateFilters();
     }
 
     setTremolo(status = true) {
         if (!status) {
             this.filters.tremolo = false
             this.filtersData.tremolo = { frequency: 2.0, depth: 0.5 };
-            this.updateFilters();
+            return this.updateFilters();
         }
         this.filters.tremolo = true
         this.filtersData.tremolo = { frequency: 2.0, depth: 0.5 };
-        this.updateFilters();
+        return this.updateFilters();
     }
 
     setEarrape(status = true) {
@@ -174,25 +174,25 @@ class Player extends Structure.get('Player') {
             this.filters.earrape = false
             this.filtersData.equalizer = [];
             this.filtersData.volume = 1.0;
-            this.updateFilters();
+            return this.updateFilters();
         }
         this.filters.earrape = true
         this.filtersData.equalizer = [...Array(6).fill(0).map((n, i) => ({ band: i, gain: 0.5 }))];
         this.filtersData.volume = 5.0;
-        this.updateFilters();
+        return this.updateFilters();
     }
 
     setDistortion(status = true) {
         if (!status) {
             this.filters.distortion = false
             this.filtersData.distortion = null
-            this.updateFilters();
+            return this.updateFilters();
         }
         this.filters.distortion = true
         this.filtersData.distortion = {
             sinOffset: 0, sinScale: 1, cosOffset: 0, cosScale: 1, tanOffset: 0, tanScale: 1, offset: 0, scale: 1,
         };
-        this.updateFilters();
+        return this.updateFilters();
     }
 
     async updateFilters(seek = true) {
