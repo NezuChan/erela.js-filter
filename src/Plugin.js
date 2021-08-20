@@ -232,7 +232,7 @@ class Player extends Structure.get('Player') {
             tremolo: false,
             distortion: false
         }
-        if (!seek) return;
+        if (!seek) return this;
         return this.seek(this.position)
     }
 }
