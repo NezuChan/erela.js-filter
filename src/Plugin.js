@@ -150,7 +150,7 @@ class Player extends Structure.get('Player') {
     setVibrato(status = true) {
         if (!status) {
             this.filters.vibrato = false
-            this.filtersData.vibrato = { depth: 1, frequency: 14 };
+            this.filtersData.vibrato = null;
             return this.updateFilters();
         }
         this.filters.vibrato = true
