@@ -3,9 +3,9 @@ import DocsManager from "./DocsManager";
 const blacklisted = new Set(["docs", "docs-website"]);
 
 export default new DocsManager({
-    id: "erelaFilter",
-    name: "Main Library",
-    global: "Main",
+    id: "Main Library",
+    name: "erelajsFilter",
+    global: "erelajsFilter",
     repo: "NezuChan/erela.js-filter",
     defaultTag: "main",
     docsBranch: "docs",
