@@ -2,6 +2,9 @@
 import { Plugin } from "erela.js";
 import { filterConstants } from "./Util/filterConstants";
 declare const Player_base: typeof import("erela.js").Player;
+/**
+ * Represents a extended Player class.
+ */
 declare class Player extends Player_base {
     filtersData: filterConstants;
     filters: {
@@ -20,86 +23,86 @@ declare class Player extends Player_base {
     };
     /**
      * Set filter to nightcore
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setNightcore(status?: boolean): this;
     /**
      * Set filter to daycore
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setDaycore(status?: boolean): this;
     /**
      * Set filter to vaporwave
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setVaporwave(status?: boolean): this;
     /**
      * Set filter to pop
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setPop(status?: boolean): this;
     /**
      * Set filter to soft
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setSoft(status?: boolean): this;
     /**
      * Set filter to trebblebass
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setTrebbleBass(status?: boolean): this;
     /**
      * Set filter to 8D
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setEightD(status?: boolean): this;
     /**
      * Set filter to karaoke
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setKaraoke(status?: boolean): this;
     /**
      * Set filter to vibrato
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setVibrato(status?: boolean): this;
     /**
      * Set filter to tremolo
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setTremolo(status?: boolean): this;
     /**
      * Set filter to earrape
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setEarrape(status?: boolean): this;
     /**
      * Set filter to distortion
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setDistortion(status?: boolean): this;
     /**
      * Update current applied filters
-     * @param seek Boolean
-     * @returns Player
+     * @param {boolean} [seek = true] Should the music seeked or no
+     * @returns {Player}
      */
     updateFilters(seek?: boolean): this;
     /**
-     * Clear applied filter(s)
-     * @param seek Boolean
-     * @returns Player
+    * Clear applied filter(s)
+     * @param {boolean} [seek = true] Should the music seeked or no
+     * @returns {Player}
      */
     clearFilters(seek?: boolean): this;
 }

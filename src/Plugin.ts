@@ -1,6 +1,10 @@
 import { Plugin, Structure } from "erela.js";
 import { filterConstants } from "./Util/filterConstants";
 
+/**
+ * Represents a extended Player class.
+ */
+
 class Player extends Structure.get("Player") {
     public filtersData = new filterConstants();
     public filters = {
@@ -19,8 +23,8 @@ class Player extends Structure.get("Player") {
     };
     /**
      * Set filter to nightcore
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     public setNightcore(status = true): this {
         if (!status) {
@@ -38,8 +42,8 @@ class Player extends Structure.get("Player") {
     }
     /**
      * Set filter to daycore
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     public setDaycore(status = true): this {
         if (!status) {
@@ -53,8 +57,8 @@ class Player extends Structure.get("Player") {
     }
     /**
      * Set filter to vaporwave
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     public setVaporwave(status = true): this {
         if (!status) {
@@ -72,8 +76,8 @@ class Player extends Structure.get("Player") {
     }
     /**
      * Set filter to pop
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     public setPop(status = true): this {
         if (!status) {
@@ -102,8 +106,8 @@ class Player extends Structure.get("Player") {
     }
     /**
      * Set filter to soft
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     public setSoft(status = true): this {
         if (!status) {
@@ -117,8 +121,8 @@ class Player extends Structure.get("Player") {
     }
     /**
      * Set filter to trebblebass
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     public setTrebbleBass(status = true): this {
         if (!status) {
@@ -147,8 +151,8 @@ class Player extends Structure.get("Player") {
     }
     /**
      * Set filter to 8D
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     public setEightD(status = true): this {
         if (!status) {
@@ -162,8 +166,8 @@ class Player extends Structure.get("Player") {
     }
     /**
      * Set filter to karaoke
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     public setKaraoke(status = true): this {
         if (!status) {
@@ -182,8 +186,8 @@ class Player extends Structure.get("Player") {
     }
     /**
      * Set filter to vibrato
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     public setVibrato(status = true): this {
         if (!status) {
@@ -197,8 +201,8 @@ class Player extends Structure.get("Player") {
     }
     /**
      * Set filter to tremolo
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     public setTremolo(status = true): this {
         if (!status) {
@@ -212,8 +216,8 @@ class Player extends Structure.get("Player") {
     }
     /**
      * Set filter to earrape
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     public setEarrape(status = true): this {
         if (!status) {
@@ -229,8 +233,8 @@ class Player extends Structure.get("Player") {
     }
     /**
      * Set filter to distortion
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     public setDistortion(status = true): this {
         if (!status) {
@@ -246,8 +250,8 @@ class Player extends Structure.get("Player") {
     }
     /**
      * Update current applied filters
-     * @param seek Boolean
-     * @returns Player
+     * @param {boolean} [seek = true] Should the music seeked or no
+     * @returns {Player}
      */
     public updateFilters(seek = true): this {
         const { volume, equalizer, karaoke, timescale, tremolo, vibrato, rotation, distortion } = this.filtersData;
@@ -267,9 +271,9 @@ class Player extends Structure.get("Player") {
         return this.seek(this.position);
     }
     /**
-     * Clear applied filter(s)
-     * @param seek Boolean
-     * @returns Player
+    * Clear applied filter(s)
+     * @param {boolean} [seek = true] Should the music seeked or no
+     * @returns {Player}
      */
     public clearFilters(seek = true): this {
         void this.node.send({

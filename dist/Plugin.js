@@ -3,6 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.erelaFilters = void 0;
 const erela_js_1 = require("erela.js");
 const filterConstants_1 = require("./Util/filterConstants");
+/**
+ * Represents a extended Player class.
+ */
 class Player extends erela_js_1.Structure.get("Player") {
     constructor() {
         super(...arguments);
@@ -24,8 +27,8 @@ class Player extends erela_js_1.Structure.get("Player") {
     }
     /**
      * Set filter to nightcore
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setNightcore(status = true) {
         if (!status) {
@@ -43,8 +46,8 @@ class Player extends erela_js_1.Structure.get("Player") {
     }
     /**
      * Set filter to daycore
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setDaycore(status = true) {
         if (!status) {
@@ -58,8 +61,8 @@ class Player extends erela_js_1.Structure.get("Player") {
     }
     /**
      * Set filter to vaporwave
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setVaporwave(status = true) {
         if (!status) {
@@ -77,8 +80,8 @@ class Player extends erela_js_1.Structure.get("Player") {
     }
     /**
      * Set filter to pop
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setPop(status = true) {
         if (!status) {
@@ -107,8 +110,8 @@ class Player extends erela_js_1.Structure.get("Player") {
     }
     /**
      * Set filter to soft
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setSoft(status = true) {
         if (!status) {
@@ -122,8 +125,8 @@ class Player extends erela_js_1.Structure.get("Player") {
     }
     /**
      * Set filter to trebblebass
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setTrebbleBass(status = true) {
         if (!status) {
@@ -152,8 +155,8 @@ class Player extends erela_js_1.Structure.get("Player") {
     }
     /**
      * Set filter to 8D
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setEightD(status = true) {
         if (!status) {
@@ -167,8 +170,8 @@ class Player extends erela_js_1.Structure.get("Player") {
     }
     /**
      * Set filter to karaoke
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setKaraoke(status = true) {
         if (!status) {
@@ -187,8 +190,8 @@ class Player extends erela_js_1.Structure.get("Player") {
     }
     /**
      * Set filter to vibrato
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setVibrato(status = true) {
         if (!status) {
@@ -202,8 +205,8 @@ class Player extends erela_js_1.Structure.get("Player") {
     }
     /**
      * Set filter to tremolo
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setTremolo(status = true) {
         if (!status) {
@@ -217,8 +220,8 @@ class Player extends erela_js_1.Structure.get("Player") {
     }
     /**
      * Set filter to earrape
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setEarrape(status = true) {
         if (!status) {
@@ -234,8 +237,8 @@ class Player extends erela_js_1.Structure.get("Player") {
     }
     /**
      * Set filter to distortion
-     * @param status Boolean
-     * @returns Player
+     * @param {boolean} [status = true] The status is enabled or disabled
+     * @returns {Player}
      */
     setDistortion(status = true) {
         if (!status) {
@@ -251,8 +254,8 @@ class Player extends erela_js_1.Structure.get("Player") {
     }
     /**
      * Update current applied filters
-     * @param seek Boolean
-     * @returns Player
+     * @param {boolean} [seek = true] Should the music seeked or no
+     * @returns {Player}
      */
     updateFilters(seek = true) {
         const { volume, equalizer, karaoke, timescale, tremolo, vibrato, rotation, distortion } = this.filtersData;
@@ -273,9 +276,9 @@ class Player extends erela_js_1.Structure.get("Player") {
         return this.seek(this.position);
     }
     /**
-     * Clear applied filter(s)
-     * @param seek Boolean
-     * @returns Player
+    * Clear applied filter(s)
+     * @param {boolean} [seek = true] Should the music seeked or no
+     * @returns {Player}
      */
     clearFilters(seek = true) {
         void this.node.send({
