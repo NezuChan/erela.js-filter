@@ -18,19 +18,89 @@ declare class Player extends Player_base {
         tremolo: boolean;
         distortion: boolean;
     };
+    /**
+     * Set filter to nightcore
+     * @param status Boolean
+     * @returns Player
+     */
     setNightcore(status?: boolean): this;
+    /**
+     * Set filter to daycore
+     * @param status Boolean
+     * @returns Player
+     */
     setDaycore(status?: boolean): this;
+    /**
+     * Set filter to vaporwave
+     * @param status Boolean
+     * @returns Player
+     */
     setVaporwave(status?: boolean): this;
+    /**
+     * Set filter to pop
+     * @param status Boolean
+     * @returns Player
+     */
     setPop(status?: boolean): this;
+    /**
+     * Set filter to soft
+     * @param status Boolean
+     * @returns Player
+     */
     setSoft(status?: boolean): this;
+    /**
+     * Set filter to trebblebass
+     * @param status Boolean
+     * @returns Player
+     */
     setTrebbleBass(status?: boolean): this;
+    /**
+     * Set filter to 8D
+     * @param status Boolean
+     * @returns Player
+     */
     setEightD(status?: boolean): this;
+    /**
+     * Set filter to karaoke
+     * @param status Boolean
+     * @returns Player
+     */
     setKaraoke(status?: boolean): this;
+    /**
+     * Set filter to vibrato
+     * @param status Boolean
+     * @returns Player
+     */
     setVibrato(status?: boolean): this;
+    /**
+     * Set filter to tremolo
+     * @param status Boolean
+     * @returns Player
+     */
     setTremolo(status?: boolean): this;
+    /**
+     * Set filter to earrape
+     * @param status Boolean
+     * @returns Player
+     */
     setEarrape(status?: boolean): this;
+    /**
+     * Set filter to distortion
+     * @param status Boolean
+     * @returns Player
+     */
     setDistortion(status?: boolean): this;
+    /**
+     * Update current applied filters
+     * @param seek Boolean
+     * @returns Player
+     */
     updateFilters(seek?: boolean): this;
+    /**
+     * Clear applied filter(s)
+     * @param seek Boolean
+     * @returns Player
+     */
     clearFilters(seek?: boolean): this;
 }
 export declare class erelaFilters extends Plugin {

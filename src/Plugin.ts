@@ -17,7 +17,11 @@ class Player extends Structure.get("Player") {
         tremolo: false,
         distortion: false
     };
-
+    /**
+     * Set filter to nightcore
+     * @param status Boolean
+     * @returns Player
+     */
     public setNightcore(status = true): this {
         if (!status) {
             this.filters.nightcore = false;
@@ -32,7 +36,11 @@ class Player extends Structure.get("Player") {
         };
         return this.updateFilters();
     }
-
+    /**
+     * Set filter to daycore
+     * @param status Boolean
+     * @returns Player
+     */
     public setDaycore(status = true): this {
         if (!status) {
             this.filters.daycore = false;
@@ -43,7 +51,11 @@ class Player extends Structure.get("Player") {
         this.filtersData.timescale = { speed: 1, rate: 1, pitch: 0.9 };
         return this.updateFilters();
     }
-
+    /**
+     * Set filter to vaporwave
+     * @param status Boolean
+     * @returns Player
+     */
     public setVaporwave(status = true): this {
         if (!status) {
             this.filters.vaporwave = false;
@@ -58,7 +70,11 @@ class Player extends Structure.get("Player") {
         this.filtersData.tremolo = { depth: 0.3, frequency: 14 };
         return this.updateFilters();
     }
-
+    /**
+     * Set filter to pop
+     * @param status Boolean
+     * @returns Player
+     */
     public setPop(status = true): this {
         if (!status) {
             this.filters.pop = false;
@@ -84,7 +100,11 @@ class Player extends Structure.get("Player") {
         ];
         return this.updateFilters();
     }
-
+    /**
+     * Set filter to soft
+     * @param status Boolean
+     * @returns Player
+     */
     public setSoft(status = true): this {
         if (!status) {
             this.filters.soft = false;
@@ -95,7 +115,11 @@ class Player extends Structure.get("Player") {
         this.filtersData.lowpass = { smoothing: 20.0 };
         return this.updateFilters();
     }
-
+    /**
+     * Set filter to trebblebass
+     * @param status Boolean
+     * @returns Player
+     */
     public setTrebbleBass(status = true): this {
         if (!status) {
             this.filters.trebblebass = false;
@@ -121,7 +145,11 @@ class Player extends Structure.get("Player") {
         ];
         return this.updateFilters();
     }
-
+    /**
+     * Set filter to 8D
+     * @param status Boolean
+     * @returns Player
+     */
     public setEightD(status = true): this {
         if (!status) {
             this.filters.eightD = false;
@@ -132,7 +160,11 @@ class Player extends Structure.get("Player") {
         this.filtersData.rotation = { rotationHz: 0.2 };
         return this.updateFilters();
     }
-
+    /**
+     * Set filter to karaoke
+     * @param status Boolean
+     * @returns Player
+     */
     public setKaraoke(status = true): this {
         if (!status) {
             this.filters.karaoke = false;
@@ -148,7 +180,11 @@ class Player extends Structure.get("Player") {
         };
         return this.updateFilters();
     }
-
+    /**
+     * Set filter to vibrato
+     * @param status Boolean
+     * @returns Player
+     */
     public setVibrato(status = true): this {
         if (!status) {
             this.filters.vibrato = false;
@@ -159,7 +195,11 @@ class Player extends Structure.get("Player") {
         this.filtersData.vibrato = { depth: 1, frequency: 14 };
         return this.updateFilters();
     }
-
+    /**
+     * Set filter to tremolo
+     * @param status Boolean
+     * @returns Player
+     */
     public setTremolo(status = true): this {
         if (!status) {
             this.filters.tremolo = false;
@@ -170,7 +210,11 @@ class Player extends Structure.get("Player") {
         this.filtersData.tremolo = { frequency: 2.0, depth: 0.5 };
         return this.updateFilters();
     }
-
+    /**
+     * Set filter to earrape
+     * @param status Boolean
+     * @returns Player
+     */
     public setEarrape(status = true): this {
         if (!status) {
             this.filters.earrape = false;
@@ -183,7 +227,11 @@ class Player extends Structure.get("Player") {
         this.filtersData.volume = 5.0;
         return this.updateFilters();
     }
-
+    /**
+     * Set filter to distortion
+     * @param status Boolean
+     * @returns Player
+     */
     public setDistortion(status = true): this {
         if (!status) {
             this.filters.distortion = false;
@@ -196,7 +244,11 @@ class Player extends Structure.get("Player") {
         };
         return this.updateFilters();
     }
-
+    /**
+     * Update current applied filters
+     * @param seek Boolean
+     * @returns Player
+     */
     public updateFilters(seek = true): this {
         const { volume, equalizer, karaoke, timescale, tremolo, vibrato, rotation, distortion } = this.filtersData;
         void this.node.send({
@@ -214,7 +266,11 @@ class Player extends Structure.get("Player") {
         if (!seek) return this;
         return this.seek(this.position);
     }
-
+    /**
+     * Clear applied filter(s)
+     * @param seek Boolean
+     * @returns Player
+     */
     public clearFilters(seek = true): this {
         void this.node.send({
             op: "filters",
