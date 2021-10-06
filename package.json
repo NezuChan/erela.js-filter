@@ -7,7 +7,7 @@
     "build": "tsc",
     "lint": "eslint . --ignore-path .gitignore --ext .ts",
     "lint:fix": "eslint . --ignore-path .gitignore --ext .ts --fix",
-    "docs": "docgen --source src --custom docs/index.yml --output docs/docs.json"
+    "docs": "docgen --source dist --custom docs/index.yml --output docs/docs.json"
   },
   "license": "MIT",
   "author": {
