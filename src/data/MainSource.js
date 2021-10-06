@@ -1,6 +1,6 @@
 import DocsManager from "./DocsManager";
 
-const blacklisted = new Set(["docs"]);
+const blacklisted = new Set(["docs", "docs-website"]);
 
 export default new DocsManager({
     id: "main",
