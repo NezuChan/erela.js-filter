@@ -1,4 +1,4 @@
-/// <reference path="../src/typings/index.d.ts" />
+/// <reference path="typings/index.d.ts" />
 import { Plugin } from "erela.js";
 import { filterConstants } from "./Util/filterConstants";
 declare const Player_base: typeof import("erela.js").Player;
