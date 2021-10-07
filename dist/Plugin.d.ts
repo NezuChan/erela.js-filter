@@ -4,8 +4,7 @@ import { filterConstants } from "./Util/filterConstants";
 declare const Player_base: typeof import("erela.js").Player;
 /**
  * Represents a extended Player class
- * @constructor
- * @extends {import("erela.js").Player}
+ * @extends {Player}
  */
 declare class Player extends Player_base {
     filtersData: filterConstants;

@@ -5,8 +5,7 @@ const erela_js_1 = require("erela.js");
 const filterConstants_1 = require("./Util/filterConstants");
 /**
  * Represents a extended Player class
- * @constructor
- * @extends {import("erela.js").Player}
+ * @extends {Player}
  */
 class Player extends erela_js_1.Structure.get("Player") {
     constructor() {
