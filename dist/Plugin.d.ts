@@ -1,9 +1,11 @@
+/// <reference path="typings/index.d.ts" />
 import { Plugin } from "erela.js";
 import { filterConstants } from "./Util/filterConstants";
-declare const Player_base: any;
+declare const Player_base: typeof import("erela.js").Player;
 /**
  * Represents a extended Player class
- * @extends {Player}
+ * @constructor
+ * @extends {import("erela.js").Player}
  */
 declare class Player extends Player_base {
     filtersData: filterConstants;

@@ -2,7 +2,8 @@ import { Plugin, Structure } from "erela.js";
 import { filterConstants } from "./Util/filterConstants";
 /**
  * Represents a extended Player class 
- * @extends {Player}
+ * @constructor
+ * @extends {import("erela.js").Player}
  */
 class Player extends Structure.get("Player") {
     public filtersData = new filterConstants();
@@ -32,6 +33,7 @@ class Player extends Structure.get("Player") {
             return this.updateFilters();
         }
         this.filters.nightcore = true;
+        this.filters.daycore = false;
         this.filtersData.timescale = {
             speed: 1.0,
             pitch: 1.2,
@@ -51,6 +53,7 @@ class Player extends Structure.get("Player") {
             return this.updateFilters();
         }
         this.filters.daycore = true;
+        this.filters.nightcore = false;
         this.filtersData.timescale = { speed: 1, rate: 1, pitch: 0.9 };
         return this.updateFilters();
     }
@@ -68,6 +71,9 @@ class Player extends Structure.get("Player") {
             return this.updateFilters();
         }
         this.filters.vaporwave = true;
+        this.filters.daycore = false;
+        this.filters.nightcore = false;
+        this.filters.tremolo = false;
         this.filtersData.equalizer = [{ band: 1, gain: 0.3 }, { band: 0, gain: 0.3 }];
         this.filtersData.timescale = { pitch: 0.5 };
         this.filtersData.tremolo = { depth: 0.3, frequency: 14 };
@@ -85,6 +91,8 @@ class Player extends Structure.get("Player") {
             return this.updateFilters();
         }
         this.filters.pop = true;
+
+        this.filters.trebblebass = false;
         this.filtersData.equalizer = [
             { band: 0, gain: 0.65 },
             { band: 1, gain: 0.45 },
@@ -130,6 +138,7 @@ class Player extends Structure.get("Player") {
             return this.updateFilters();
         }
         this.filters.trebblebass = true;
+        this.filters.pop = false;
         this.filtersData.equalizer = [
             { band: 0, gain: 0.6 },
             { band: 1, gain: 0.67 },
@@ -206,10 +215,11 @@ class Player extends Structure.get("Player") {
     public setTremolo(status = true): this {
         if (!status) {
             this.filters.tremolo = false;
-            this.filtersData.tremolo = { frequency: 2.0, depth: 0.5 };
+            this.filtersData.tremolo = { };
             return this.updateFilters();
         }
         this.filters.tremolo = true;
+        this.filters.vaporwave = false;
         this.filtersData.tremolo = { frequency: 2.0, depth: 0.5 };
         return this.updateFilters();
     }
@@ -226,6 +236,8 @@ class Player extends Structure.get("Player") {
             return this.updateFilters();
         }
         this.filters.earrape = true;
+        this.filters.pop = false;
+        this.filters.trebblebass = false;
         this.filtersData.equalizer = [...Array(6).fill(0).map((n, i) => ({ band: i, gain: 0.5 }))];
         this.filtersData.volume = 5.0;
         return this.updateFilters();
