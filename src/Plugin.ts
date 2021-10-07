@@ -2,7 +2,6 @@ import { Plugin, Structure } from "erela.js";
 import { filterConstants } from "./Util/filterConstants";
 /**
  * Represents a extended Player class 
- * @constructor
  * @extends {Player}
  */
 class Player extends Structure.get("Player") {
