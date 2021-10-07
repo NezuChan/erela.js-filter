@@ -3,7 +3,7 @@ import { filterConstants } from "./Util/filterConstants";
 /**
  * Represents a extended Player class 
  * @constructor
- * @extends {import("erela.js").Player}
+ * @extends {Player}
  */
 class Player extends Structure.get("Player") {
     public filtersData = new filterConstants();
